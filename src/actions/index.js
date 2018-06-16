@@ -10,7 +10,7 @@ export const FETCH_POST ='FETCH_POST';
 export function createUser(values){
   return(dispatch, getState) =>{
     debugger
-  const request = axios.post('http://deframe-test-api.us-east-1.elasticbeanstalk.com:80/accounts/register',
+  const request = axios.post('http://deframe-prod-api.us-east-1.elasticbeanstalk.com:80/accounts/register',
   values)
 .then((response) => {
        dispatch({
@@ -22,8 +22,10 @@ export function createUser(values){
 }
 }
 export function loginUser(values){
+
+  
   return(dispatch,getState) =>{
-    const request = axios.post('http://deframe-test-api.us-east-1.elasticbeanstalk.com:80/accounts/login',values)
+  const request = axios.post('http://deframe-prod-api.us-east-1.elasticbeanstalk.com:80/accounts/login', values)
   return(dispatch) =>{
     request.then(()=>{
       dispatch({
@@ -34,8 +36,10 @@ export function loginUser(values){
   }
   }
 }
+
+
 export function fetchPost(id){ //we will make sure props we pass are title categories
-  const request = axios.get('http://deframe-test-api.us-east-1.elasticbeanstalk.com:80/users/id/1')
+  const request = axios.get('http://deframe-prod-api.us-east-1.elasticbeanstalk.com:80/users/id/1')
   return(dispatch) =>{
     request.then(()=>{
 dispatch({
