@@ -15,7 +15,8 @@ class LoginForm extends Component{
     const className =`form-group ${touched && error ? "color:blue;" : ''}`
     return(
       <div className= {className}>
-        {/* <label>{field.label}</label> */}
+        <label>{field.label}</label>
+
         <input
           className="form-control"
           {...field.input}
