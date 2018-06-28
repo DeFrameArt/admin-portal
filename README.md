@@ -23,3 +23,7 @@ Below links are useful for learning site hosting on AWS S3
 
 https://www.fullstackreact.com/articles/deploying-a-react-app-to-s3/
 https://www.youtube.com/watch?v=D6qB7MEFOe0
+
+
+will have to use or will see weather we have to use  component mount  thing
+get all gallery will use component will mount

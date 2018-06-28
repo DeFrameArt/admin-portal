@@ -9,13 +9,16 @@ import reducers from './reducers/index';
 import ChangePassword from './components/change-password';
 import LoginForm from './components/login-form';
 import RegisterForm from './components/register';
+import AddNewExhibit from './components/add-new-exhibit';
+import AddNewGallery  from './components/add-gallery';
+import ShowGallery from './components/show_gallery';
+import featuretype from './components/feature_type.js'
 import './index.css';
 import SidebarRightPush from './components/dashbord';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 const createStoreWithMiddleware = applyMiddleware(thunk, promise)(createStore);
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
@@ -24,7 +27,10 @@ ReactDOM.render(
           <Route path="/changepassword" component ={ChangePassword} />
           <Route path="/register" component ={RegisterForm} />
           <Route path="/dashboard" component={SidebarRightPush} />
-
+          <Route path="/add-new-exhibit" component={AddNewExhibit} />
+          <Route path="/add-gallery" component ={AddNewGallery} />
+          <Route path="/show-gallery" component ={ShowGallery}/>
+          {/* <Route path="featuretype/:id" component={featuretype} /> */}
           <Route path="/" component ={LoginForm} />
         </Switch>
       </div>
