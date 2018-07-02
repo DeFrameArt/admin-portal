@@ -12,7 +12,7 @@ import RegisterForm from './components/register';
 import AddNewExhibit from './components/add-new-exhibit';
 import AddNewGallery  from './components/add-gallery';
 import ShowGallery from './components/show_gallery';
-import featuretype from './components/feature_type.js'
+// import featuretype from './components/feature_type.js'
 import './index.css';
 import SidebarRightPush from './components/dashbord';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
