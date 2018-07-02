@@ -8,25 +8,25 @@ import {fetchGallery} from '../actions/index';
 class ShowGallery extends Component {
 componentDidMount(){
   this.props.fetchGallery()
-  console.log('i m here')
+  console.log('i m here' + "  " + this.props.fetchGallery())
 
 }
   renderGallery(){
 
-    return  _.map(this.props.gallery, gallery=>{
+    return   _.map(this.props.gallery, gall=>{
 
       return(
-        <li className="list-group-item" key={gallery.id}>
+        <li className="list-group-item" key={gall.id}>
 
-          {gallery}
-          {gallery.id}
-          {gallery.name}
-          {gallery.featuretype}
+
+          {gall.id}
+          {gall.name}
+          {gall.featuretype}
 
           {/* <Link to{"featuretype/" + featuretype.id }>
             <span className="pull-xs-left">edit</span>
           </Link>  */}
-            </li>
+        </li>
             )
           })
 }
@@ -37,12 +37,14 @@ componentDidMount(){
         <h3>Gallery</h3>
         <ul>
           {this.renderGallery()}
+          {console.log(this.renderGallery())}
         </ul>
       </div>
     )
   }
 }
 function mapStateToProps(state){
+  console.log (state)
   return { gallery:state.gallery}
 }
 export default connect(mapStateToProps, {fetchGallery})(ShowGallery)
