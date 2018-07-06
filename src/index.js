@@ -12,6 +12,7 @@ import RegisterForm from './components/register';
 import AddNewExhibit from './components/add-new-exhibit';
 import AddNewGallery  from './components/add-gallery';
 import ShowGallery from './components/show_gallery';
+import AddNewUser from './components/add_newuser';
 // import featuretype from './components/feature_type.js'
 import './index.css';
 import SidebarRightPush from './components/dashbord';
@@ -30,6 +31,7 @@ ReactDOM.render(
           <Route path="/add-new-exhibit" component={AddNewExhibit} />
           <Route path="/add-gallery" component ={AddNewGallery} />
           <Route path="/show-gallery" component ={ShowGallery}/>
+          <Route path="/add-new-user" component={ AddNewUser } />
           {/* <Route path="featuretype/:id" component={featuretype} /> */}
           <Route path="/" component ={LoginForm} />
         </Switch>

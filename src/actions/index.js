@@ -7,6 +7,7 @@ export const FETCH_POST ='FETCH_POST';
 export const CREATE_EXHIBIT='CREATE_EXHIBIT';
 export const CREATE_GALLERY ='CREATE_GALLERY';
 export const FETCH_GALLERY= 'FETCH_GALLERY';
+export const ADD_USER ='ADD_USER';
 
 export function createUser(values){
   return(dispatch, getState) =>{
@@ -35,18 +36,6 @@ export function loginUser(values){
   }
 }
 
-
-// export function fetchPost(id){ //we will make sure props we pass are title categories
-//   const request = axios.get(API_CALL+'/users/id/1')
-//   return(dispatch) =>{
-//     request.then(()=>{
-// dispatch({
-//   type:FETCH_POST,
-//   payload:id
-// })
-// })
-// }
-// }
 export function createExhibit(values){
   const request= axios.post('', values)
   return(dispatch)=>{
@@ -69,10 +58,21 @@ export function createGallery(values){
     })
   }
 }
+export function addUser(values){
+  const request = axios.post('', values)
+  return(dispatch)=>{
+    request.then(()=>{
+      dispatch({
+        type:ADD_USER,
+        payload:values
+      })
+    })
+  }
+}
+
 export function fetchGallery(){
   const request = axios.get(API_CALL+'/museums/1/gallery')
   // http://deframe-test-api.us-east-1.elasticbeanstalk.com:80/museums/1/gallery
-
   return(dispatch) =>{
     request.then(({data}) =>{
       console.log(data)

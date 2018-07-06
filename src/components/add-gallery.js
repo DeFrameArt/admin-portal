@@ -49,8 +49,8 @@ class AddNewGallery extends Component{
               component={this.renderField}
               type="file"
             placeholder="upload file" />
-              <button type="submit" className ="mt-5 btn btn-block form-btn">Save</button>
-              <button type="reset" className ="mt-5 btn btn-block form-btn">Cancel</button>
+            <button type="submit" className ="mt-5 btn btn-block form-btn">Save</button>
+            <button type="reset" className ="mt-5 btn btn-block form-btn">Cancel</button>
               </form>
 
             </div>
