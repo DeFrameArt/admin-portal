@@ -4,9 +4,9 @@ export default function (state={}, action){
     switch(action.type) {
       case FETCH_GALLERY:
       debugger
-      return _.mapKeys(action.payload.data, 'id')
+      return _.mapKeys(action.payload, "id")
         default:
-        return state
+        return state;
     }
 
 }

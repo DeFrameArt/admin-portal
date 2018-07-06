@@ -17,8 +17,6 @@ componentDidMount(){
 
       return(
         <li className="list-group-item" key={gall.id}>
-
-
           {gall.id}
           {gall.name}
           {gall.featuretype}
@@ -44,7 +42,7 @@ componentDidMount(){
   }
 }
 function mapStateToProps(state){
-  console.log (state)
-  return { gallery:state.gallery}
+  console.log (state.gallery)
+  return { gallery: state.gallery}
 }
-export default connect(mapStateToProps, {fetchGallery})(ShowGallery)
+export default connect(mapStateToProps, { fetchGallery })(ShowGallery)
