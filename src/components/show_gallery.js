@@ -4,29 +4,26 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import '../index.css';
 import {fetchGallery} from '../actions/index';
+
 // import { Link } from 'react-router-dom';
 class ShowGallery extends Component {
 componentDidMount(){
-  this.props.fetchGallery()
+   this.props.fetchGallery()
   console.log('i m here' + "  " + this.props.fetchGallery())
-
 }
   renderGallery(){
 
-    return   _.map(this.props.gallery, gall=>{
+    return  _.map(this.props.gallery, gall=>{
+
+
+console.log(gall.featuretype)
 
       return(
-        <li className="list-group-item" key={gall.id}>
-          {gall.id}
-          {gall.name}
-          {gall.featuretype}
-
-          {/* <Link to{"featuretype/" + featuretype.id }>
-            <span className="pull-xs-left">edit</span>
-          </Link>  */}
-        </li>
-            )
-          })
+          <li className="list-group-item" key={gall.id}>
+            {gall.name}
+          </li>
+          )
+        })
 }
   render(){
 
@@ -42,7 +39,7 @@ componentDidMount(){
   }
 }
 function mapStateToProps(state){
-  console.log (state.gallery)
+  console.log (state)
   return { gallery: state.gallery}
 }
 export default connect(mapStateToProps, { fetchGallery })(ShowGallery)

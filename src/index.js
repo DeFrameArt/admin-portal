@@ -13,7 +13,9 @@ import AddNewExhibit from './components/add-new-exhibit';
 import AddNewGallery  from './components/add-gallery';
 import ShowGallery from './components/show_gallery';
 import AddNewUser from './components/add_newuser';
+import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
+import MuseumFeatureImage from './components/museum_featureImage';
 import './index.css';
 import SidebarRightPush from './components/dashbord';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -32,6 +34,8 @@ ReactDOM.render(
           <Route path="/add-gallery" component ={AddNewGallery} />
           <Route path="/show-gallery" component ={ShowGallery}/>
           <Route path="/add-new-user" component={ AddNewUser } />
+          <Route path="/welcome" component={ WelcomeAdmins } />
+          <Route path ="/featureimage" component={ MuseumFeatureImage } />
           {/* <Route path="featuretype/:id" component={featuretype} /> */}
           <Route path="/" component ={LoginForm} />
         </Switch>

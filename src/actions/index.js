@@ -8,7 +8,8 @@ export const CREATE_EXHIBIT='CREATE_EXHIBIT';
 export const CREATE_GALLERY ='CREATE_GALLERY';
 export const FETCH_GALLERY= 'FETCH_GALLERY';
 export const ADD_USER ='ADD_USER';
-
+export const FETCH_ADMINS = 'FETCH_ADMINS'
+export const FEATURE_IMAGES ='FEATURE_IMAGES';
 export function createUser(values){
   return(dispatch, getState) =>{
     debugger
@@ -18,7 +19,6 @@ export function createUser(values){
          type: CREATE_USER,
          payload:values
        })
-
  })
 }
 }
@@ -36,6 +36,19 @@ export function loginUser(values){
   }
 }
 
+export function galleryFeatureImages(){
+  const request = axios.get(API_CALL+'/museums/1/featuredimages')
+  return(dispatch)=>{
+    request.then(({data})=>{
+    console.log(data)
+    dispatch({
+      type:FEATURE_IMAGES,
+      payload:data
+  })
+})
+}
+}
+//createExhibit is add painting
 export function createExhibit(values){
   const request= axios.post('', values)
   return(dispatch)=>{
@@ -78,6 +91,19 @@ export function fetchGallery(){
       console.log(data)
       dispatch({
         type:FETCH_GALLERY,
+        payload:data
+      })
+    })
+  }
+}
+export function fetchAdmins(){
+  const request = axios.get(API_CALL+'/users')
+  // have to change url for admin.
+  // http://deframe-test-api.us-east-1.elasticbeanstalk.com:80/museums/1/gallery
+  return(dispatch) =>{
+    request.then(({data}) =>{
+      dispatch({
+        type:FETCH_ADMINS,
         payload:data
       })
     })

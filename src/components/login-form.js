@@ -37,8 +37,8 @@ class LoginForm extends Component{
 render(){
   const{ handleSubmit } = this.props
   return(
-    <div class="container d-flex align-items-md-center justify-content-center">
-      <div class="login-form col-md-12 col-lg-4 ">
+    <div className="container d-flex align-items-md-center justify-content-center">
+      <div className="login-form col-md-12 col-lg-4 ">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             label="Email"
