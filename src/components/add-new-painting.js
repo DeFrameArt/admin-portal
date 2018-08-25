@@ -5,6 +5,7 @@ import { createPainting } from '../actions/index';
 import DropdownList from 'react-widgets/lib/DropdownList'
 import '../index.css';
 
+
 // instead of color dropdown should be gallery name like american,contemporarry,european
 
 const galleries = [ { gallery: "European", value: 'european' },
