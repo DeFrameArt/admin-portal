@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import '../index.css';
 import {fetchGallery} from '../actions/index';
-
+import MuseumFeatureImage from './museum_featureImage.js'
 // import { Link } from 'react-router-dom';
 class ShowGallery extends Component {
 componentDidMount(){
@@ -12,16 +12,24 @@ componentDidMount(){
   console.log('i m here' + "  " + this.props.fetchGallery())
 }
   renderGallery(){
-
+console.log(this.props.gallery)
     return  _.map(this.props.gallery, gall=>{
 
 
-console.log(gall.featuretype)
+
 
       return(
-          <li className="list-group-item" key={gall.id}>
-            {gall.name}
-          </li>
+
+
+            <select><MuseumFeatureImage />
+              <option>
+                <li>
+                  {gall.name}
+                </li>
+              </option>
+            </select>
+
+
           )
         })
 }

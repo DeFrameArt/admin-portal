@@ -17,8 +17,8 @@ renderfeatureImages(){
     return(
 
   <li className="list-group-item" key={featureimage.id}>
-
     {featureimage.name}
+
   </li>
 
     )
@@ -29,9 +29,9 @@ render(){
     <div>
       <h3>MUSEUM ___ ___</h3>
       <ul className="list-group-item">
-        {this.renderfeatureImages()}
-        {console.log(this.renderfeatureImages())}
-      </ul>
+      {this.renderfeatureImages()}
+      {console.log(this.renderfeatureImages())}
+    </ul>
     </div>
   )
 }
