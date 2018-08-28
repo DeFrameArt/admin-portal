@@ -16,10 +16,10 @@ componentDidMount(){
     //featureType is an array of galleries with a unique featureType. this is done by filtering the gallery array, then mapping a new array that contains only the featureType value.
 
     const featureType = _.filter(this.props.gallery, (gallery, i, array) => {
-      
+
       //the callback predicate in _.filter returns true if the current gallery.featuretype val != the featuretype val in next element. The callback also returns true for the last element.
 
-      //index is a string value, to check next value i has to be converted to an int. 
+      //index is a string value, to check next value i has to be converted to an int.
       if (typeof array[+i+1] == 'undefined' || gallery.featuretype !== array[+i+1].featuretype){
         return true
       }else {
@@ -37,7 +37,7 @@ componentDidMount(){
           {type}
           <ul>
             {/* the function below creates a new array with paintings that have a matching featuretype, then maps it to individual li*/}
-           { _.filter(this.props.gallery, {featuretype: type}).map(e => {
+            { _.filter(this.props.gallery, {featuretype: type}).map(e => {
              return (
                <li key={e.id}>
                  {e.name}
