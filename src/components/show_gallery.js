@@ -9,7 +9,6 @@ import {fetchGallery} from '../actions/index';
 class ShowGallery extends Component {
 componentDidMount(){
    this.props.fetchGallery()
-  console.log('i m here' + "  " + this.props.fetchGallery())
 }
   renderGallery(){
 
@@ -20,7 +19,7 @@ componentDidMount(){
       //the callback predicate in _.filter returns true if the current gallery.featuretype val != the featuretype val in next element. The callback also returns true for the last element.
 
       //index is a string value, to check next value i has to be converted to an int. 
-      if (typeof array[+i+1] == 'undefined' || gallery.featuretype !== array[+i+1].featuretype){
+      if (typeof array[+i+1] === 'undefined' || gallery.featuretype !== array[+i+1].featuretype){
         return true
       }else {
         return false
