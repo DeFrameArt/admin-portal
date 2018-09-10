@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import * as EmailValidator from 'email-validator';
 import { loginUser} from '../actions/index';
 import {connect} from 'react-redux';
+import { Row, Col } from 'react-materialize';
 import '../index.css';
-import {Row, Col} from 'react-materialize;'
 
 
 class LoginForm extends Component{
@@ -40,7 +40,7 @@ render(){
   return(
     <div className="container">
       <Row>
-        <Col m={12} l={4} className="login-form">
+        <Col s={12} m={8} offset={'m2'} className="login-form">
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field
               label="Email"
