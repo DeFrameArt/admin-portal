@@ -6,6 +6,9 @@ import { loginUser} from '../actions/index';
 import {connect} from 'react-redux';
 import '../index.css';
 
+// import style components
+import { Grid, GridInner, GridCell } from '@rmwc/grid';
+
 
 class LoginForm extends Component{
   renderField(field){
@@ -37,28 +40,30 @@ class LoginForm extends Component{
 render(){
   const{ handleSubmit } = this.props
   return(
-    <div className="container d-flex align-items-md-center justify-content-center">
-      <div className="login-form col-md-12 col-lg-4 ">
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field
-            label="Email"
-            name ="email"
-            component={this.renderField}
-            type="email"
-            placeholder="Insert email"
-          />
-          <Field
-            label="Password"
-            name ="password"
-            component={this.renderField}
-            type="password"
-            placeholder="Password"
-          />
-          <button type="submit" className = "mt-5 btn btn-block form-btn"> Submit </button><br /><hr />
-          <Link to="/register" className ="mt-5 btn btn-block form-btn">Register</Link>
-        </form>
-      </div>
-    </div>
+    <Grid>
+      <GridInner>
+        <GridCell span={4} align={'middle'}>
+          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <Field
+              label="Email"
+              name ="email"
+              component={this.renderField}
+              type="email"
+              placeholder="Insert email"
+            />
+            <Field
+              label="Password"
+              name ="password"
+              component={this.renderField}
+              type="password"
+              placeholder="Password"
+            />
+            <button type="submit" className = "mt-5 btn btn-block form-btn"> Submit </button><br /><hr />
+            <Link to="/register" className ="mt-5 btn btn-block form-btn">Register</Link>
+          </form>
+          </GridCell>
+      </GridInner>
+    </Grid>
   )
 }
 

@@ -18,7 +18,7 @@ import WelcomeAdmins from './components/welcome_admins';
 import MuseumFeatureImage from './components/museum_featureImage';
 import './index.css';
 import SidebarRightPush from './components/dashbord';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/material-components-web/dist/material-components-web.min.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 const createStoreWithMiddleware = applyMiddleware(thunk, promise)(createStore);
