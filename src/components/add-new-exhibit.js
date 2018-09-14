@@ -3,7 +3,6 @@ import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import { createExhibit } from '../actions/index';
 import DropdownList from 'react-widgets/lib/DropdownList'
-import '../index.css';
 
 
 const colors = [ { color: 'Red', value: 'ff0000' },

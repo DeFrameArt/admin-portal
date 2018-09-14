@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import {connect} from 'react-redux';
 import _ from 'lodash';
-import '../index.css';
 import {fetchGallery} from '../actions/index';
 
 // import { Link } from 'react-router-dom';

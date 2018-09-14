@@ -3,7 +3,6 @@ import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import { createUser } from '../actions/index';
 import * as EmailValidator from 'email-validator';
-import '../index.css';
 
 class RegisterForm extends Component{
   renderField(field){

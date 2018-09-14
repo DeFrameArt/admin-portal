@@ -1,4 +1,8 @@
 import React from 'react';
+//import global styles
+import 'daemonite-material/css/material.min.css';
+import 'daemonite-material/js/material.min.js';
+
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import promise from 'redux-promise';
@@ -17,9 +21,6 @@ import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
 import MuseumFeatureImage from './components/museum_featureImage';
 import SidebarRightPush from './components/dashbord';
-import './index.css';
-import 'daemonite-material/css/material.min.css';
-import 'daemonite-material/js/material.min.js';
 
 
 
