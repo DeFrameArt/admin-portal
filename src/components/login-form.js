@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import * as EmailValidator from 'email-validator';
 import { loginUser} from '../actions/index';
 import {connect} from 'react-redux';
-import '../styles/login-form.css'
+
+//import stylesheet
+import '../styles/login-form.css';
 
 
 class LoginForm extends Component{
@@ -15,7 +17,6 @@ class LoginForm extends Component{
     const className =`form-group ${touched && error ? "color:blue;" : ''}`
     return(
       <div className= {className}>
-        <label>{field.label}</label>
 
         <input
           className="form-control form-input"
@@ -37,18 +38,16 @@ class LoginForm extends Component{
 render(){
   const{ handleSubmit } = this.props
   return(
-    <div className="container d-flex align-items-md-center justify-content-center">
-      <div className="login-form col-md-12 col-lg-4 ">
+    <div className="fluid-container d-flex align-items-md-center justify-content-center login-container">
+      <div className="login-form col-md-12 col-lg-3 ">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Email"
             name ="email"
             component={this.renderField}
             type="email"
             placeholder="Insert email"
           />
           <Field
-            label="Password"
             name ="password"
             component={this.renderField}
             type="password"

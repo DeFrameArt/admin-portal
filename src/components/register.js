@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import { createUser } from '../actions/index';
 import * as EmailValidator from 'email-validator';
 
@@ -37,31 +38,30 @@ class RegisterForm extends Component{
 render(){
   const{ handleSubmit } = this.props
   return(
-    <div class="container d-flex align-items-md-center justify-content-center">
-      <div class="login-form col-md-12 col-lg-4 ">
+    <div class="fluid-container d-flex align-items-md-center justify-content-center login-container">
+      <div class="login-form col-md-12 col-lg-3 ">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Email"
             name ="email"
             component={this.renderField}
             type="email"
-            placeholder="Insert email"
+            placeholder="Email"
           />
           <Field
-            label="Password"
             name ="password"
             component={this.renderField}
             type="password"
             placeholder="Password"
           />
           <Field
-            label="Confirm-Password"
             name ="password_confirm"
             component={this.renderField}
             type="password"
             placeholder="Confirm password"
           />
-          <button type="submit" className="mt-5 btn btn-block form-btn" > Register </button>
+          <button type="submit" className="btn btn-block form-btn" > Register </button>
+          <hr />
+          <Link to="/" className ="btn btn-block form-btn">Login</Link>
         </form>
       </div>
     </div>
