@@ -1,4 +1,8 @@
 import React from 'react';
+//import global styles
+import 'daemonite-material/css/material.min.css';
+import 'daemonite-material/js/material.min.js';
+
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import promise from 'redux-promise';
@@ -16,9 +20,9 @@ import AddNewUser from './components/add_newuser';
 import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
 import MuseumFeatureImage from './components/museum_featureImage';
-import './index.css';
 import SidebarRightPush from './components/dashbord';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
 
 // import registerServiceWorker from './registerServiceWorker';
 const createStoreWithMiddleware = applyMiddleware(thunk, promise)(createStore);

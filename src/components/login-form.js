@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import * as EmailValidator from 'email-validator';
 import { loginUser} from '../actions/index';
 import {connect} from 'react-redux';
-import '../index.css';
+
+//import stylesheet
+import '../styles/login-form.css';
 
 
 class LoginForm extends Component{
@@ -15,10 +17,9 @@ class LoginForm extends Component{
     const className =`form-group ${touched && error ? "color:blue;" : ''}`
     return(
       <div className= {className}>
-        <label>{field.label}</label>
 
         <input
-          className="form-control"
+          className="form-control form-input"
           {...field.input}
           type={ field.type }
           placeholder={field.placeholder}
@@ -37,25 +38,23 @@ class LoginForm extends Component{
 render(){
   const{ handleSubmit } = this.props
   return(
-    <div className="container d-flex align-items-md-center justify-content-center">
-      <div className="login-form col-md-12 col-lg-4 ">
+    <div className="fluid-container d-flex align-items-md-center justify-content-center login-container">
+      <div className="login-form col-md-12 col-lg-3 ">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Email"
             name ="email"
             component={this.renderField}
             type="email"
             placeholder="Insert email"
           />
           <Field
-            label="Password"
             name ="password"
             component={this.renderField}
             type="password"
             placeholder="Password"
           />
-          <button type="submit" className = "mt-5 btn btn-block form-btn"> Submit </button><br /><hr />
-          <Link to="/register" className ="mt-5 btn btn-block form-btn">Register</Link>
+          <button type="submit" className = "btn btn-block form-btn"> Submit </button><hr />
+          <Link to="/register" className ="btn btn-block form-btn">Register</Link>
         </form>
       </div>
     </div>
@@ -71,7 +70,7 @@ if(!EmailValidator.validate(values.email)){
   errors.email="Email is not valid"
 }
 if(!values.password ||values.password.length<6){
-  errors.password="Password Sdoesnot match"
+  errors.password="Password is not valid"
 }
 // // if(!values.password || values.password.length<10){
 // //   errors.password="Password doesnot match"
