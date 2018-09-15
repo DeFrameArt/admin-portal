@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
-import { createExhibit } from '../actions/index';
+import { createPainting } from '../actions/index';
 import DropdownList from 'react-widgets/lib/DropdownList'
 import '../index.css';
 
+// instead of color dropdown should be gallery name like american,contemporarry,european
 
-const colors = [ { color: 'Red', value: 'ff0000' },
-  { color: 'Green', value: '00ff00' },
-  { color: 'Blue', value: '0000ff' } ]
+const galleries = [ { gallery: "European", value: 'european' },
+  { gallery: 'Contemporary', value: 'contemporary' },
+  { gallery: 'American', value: 'american' } ]
 
-class AddNewExhibit extends Component{
+class AddNewPainting extends Component{
 
   renderField(field){
     return(
@@ -26,21 +27,23 @@ class AddNewExhibit extends Component{
     )
   }
 
-
-  renderDropdownList(field){
+ renderDropdownList(field){
     return(
   <DropdownList {...field.input}
     data={field.data}
-    // valueField={valueField}
-    type={field.type}
+    valueField={field.valueField}
+    textField={field.textField}
+
     onChange={field.input.onChange}
     placeholder = {field.placeholder}
   />
+
 )
   }
+
   onSubmit(values){
     // instead of createUser have to use new action creator for this create request
-    this.props.createExhibit(values)
+    this.props.createPainting(values)
     console.log(values)
   }
   render(){
@@ -50,25 +53,25 @@ class AddNewExhibit extends Component{
         {/* // <h2>Exhibit information</h2> */}
         <form onSubmit = {handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label = "Exhibit Name"
-            name="exhibit_name"
+            label = "PAINTING Name"
+            name="painting_name"
             component={this.renderField}
             type="text"
-            placeholder="Exhibit Name"
+            placeholder="Painting Name"
           />
           <Field
             name="gallery"
             component={this.renderDropdownList}
-            // data will be the option in dropdown
-            data={colors}
-            type="color"
+            data={galleries}
+            valueField="value"
+            textField="gallery"
             placeholder="Gallery"
           />
           <Field
-            name="exhibit_information"
+            name="painting_information"
             component={this.renderField}
             type="text"
-            placeholder="Exhibit Information"
+            placeholder="Painting Information"
           />
           <Field
             label = "Main Image"
@@ -87,8 +90,8 @@ class AddNewExhibit extends Component{
 }
 function validate(values){
   const errors = {};
-  if(!values.exhibit_name){
-    errors.exhibit_name="Enter the name"
+  if(!values.painting_name){
+    errors.painting_name="Enter the name"
   }
   if(!values.gallery){
     errors.gallery="select from the dropdown menu"
@@ -96,6 +99,6 @@ function validate(values){
   // can enter more errors of the remaining field
 }
 export default reduxForm({
-  form:'NewExhibit',
+  form:'NewPainting',
   validate,
-})(connect (null,{createExhibit})(AddNewExhibit))
+})(connect (null,{createPainting})(AddNewPainting))

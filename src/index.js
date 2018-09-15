@@ -9,7 +9,7 @@ import reducers from './reducers/index';
 import ChangePassword from './components/change-password';
 import LoginForm from './components/login-form';
 import RegisterForm from './components/register';
-import AddNewExhibit from './components/add-new-exhibit';
+import AddNewPainting from './components/add-new-painting';
 import AddNewGallery  from './components/add-gallery';
 import ShowGallery from './components/show_gallery';
 import AddNewUser from './components/add_newuser';
@@ -30,7 +30,7 @@ ReactDOM.render(
           <Route path="/changepassword" component ={ChangePassword} />
           <Route path="/register" component ={RegisterForm} />
           <Route path="/dashboard" component={SidebarRightPush} />
-          <Route path="/add-new-exhibit" component={AddNewExhibit} />
+          <Route path="/add-new-painting" component={AddNewPainting} />
           <Route path="/add-gallery" component ={AddNewGallery} />
           <Route path="/show-gallery" component ={ShowGallery}/>
           <Route path="/add-new-user" component={ AddNewUser } />

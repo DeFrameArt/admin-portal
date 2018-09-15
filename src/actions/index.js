@@ -4,12 +4,13 @@ import {API_CALL} from '../utils/project_consts';
 export const  CREATE_USER ='CREATE_USER';
 export const LOGIN_USER ='LOGIN_USER';
 export const FETCH_POST ='FETCH_POST';
-export const CREATE_EXHIBIT='CREATE_EXHIBIT';
+export const CREATE_PAINTING='CREATE_PAINTING';
 export const CREATE_GALLERY ='CREATE_GALLERY';
 export const FETCH_GALLERY= 'FETCH_GALLERY';
 export const ADD_USER ='ADD_USER';
 export const FETCH_ADMINS = 'FETCH_ADMINS'
 export const FEATURE_IMAGES ='FEATURE_IMAGES';
+
 export function createUser(values){
   return(dispatch, getState) =>{
     debugger
@@ -49,12 +50,12 @@ export function galleryFeatureImages(){
 }
 }
 //createExhibit is add painting
-export function createExhibit(values){
+export function createPainting(values){
   const request= axios.post('', values)
   return(dispatch)=>{
     request.then(()=>{
       dispatch({
-        type:CREATE_EXHIBIT,
+        type:CREATE_PAINTING,
         payload:values
       })
     })

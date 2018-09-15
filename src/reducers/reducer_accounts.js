@@ -3,10 +3,10 @@ import _ from 'lodash';
 
 export default function (state={}, action){
     switch(action.type) {
+
       case FETCH_GALLERY:
-      //
-      // console.log(showMessage())
-    
+    // use _.sortBy method to sort by featureType
+
       return _.mapKeys(action.payload, "id")
       case FEATURE_IMAGES:
       return _.mapKeys(action.payload, "id")
@@ -22,3 +22,6 @@ export default function (state={}, action){
 //   return( s => ...state,
 //   gallery.featuretype = 'American')
 // }
+
+//quick way to create a new array is by creating ... notation which means
+//pull out all the value of array

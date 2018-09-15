@@ -11,28 +11,47 @@ componentDidMount(){
    this.props.fetchGallery()
   console.log('i m here' + "  " + this.props.fetchGallery())
 }
-  renderGallery(){
-console.log(this.props.gallery)
-    return  _.map(this.props.gallery, gall=>{
 
 
+renderGallery(){
+  //featureType is an array of galleries with a unique featureType. this is done by filtering the gallery array,
+  // then mapping a new array that contains only the featureType value.
 
+    const featureType = _.filter(this.props.gallery, (gallery, i, array) => {
+console.log(array)
+      //the callback predicate in _.filter returns true if the current gallery.featuretype val != the featuretype val in next element. The callback also returns true for the last element.
 
-      return(
+      //index is a string value, to check next value i has to be converted to an int.
+      if (typeof array[+i+1] == 'undefined' || gallery.featuretype !== array[+i+1].featuretype){
+        return true
+      }else {
+        return false
+      }
+    }).map(e => e.featuretype)
 
+    return (
 
-            <select><MuseumFeatureImage />
-              <option>
-                <li>
-                  {gall.name}
-                </li>
-              </option>
-            </select>
+      //the .map below creates the heading based on featureType values
+      _.map(featureType, type => {
 
-
-          )
-        })
-}
+        return(
+        <li key={type}>
+          {type}
+          <ul>
+            {/* the function below creates a new array with paintings that have a matching featuretype, then maps it to individual li*/}
+            {/* featureType:type is used for matching */}
+            { _.filter(this.props.gallery, {featuretype: type}).map(e => {
+              return (
+               <li key={e.id}>
+                 {e.name}
+               </li>
+             )
+           })}
+          </ul>
+        </li>)
+      })
+    )
+  }
   render(){
 
     return(
@@ -40,14 +59,13 @@ console.log(this.props.gallery)
         <h3>Gallery</h3>
         <ul>
           {this.renderGallery()}
-          {console.log(this.renderGallery())}
         </ul>
       </div>
     )
   }
 }
 function mapStateToProps(state){
-  console.log (state)
+
   return { gallery: state.gallery}
 }
 export default connect(mapStateToProps, { fetchGallery })(ShowGallery)
