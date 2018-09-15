@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createUser } from '../actions/index';
+import { createUser } from '../../actions';
 import * as EmailValidator from 'email-validator';
+import styles from './register.module.css';
 
 class RegisterForm extends Component{
   renderField(field){
@@ -16,7 +17,7 @@ class RegisterForm extends Component{
         <div className= {className} >
           {/* <label>{field.label}</label> */}
           <input
-            className="form-control form-input"
+            className={`form-control ${styles.input}`}
             {...field.input}
             type={ field.type }
             placeholder={field.placeholder}
@@ -38,8 +39,8 @@ class RegisterForm extends Component{
 render(){
   const{ handleSubmit } = this.props
   return(
-    <div class="fluid-container d-flex align-items-md-center justify-content-center login-container">
-      <div class="login-form col-md-12 col-lg-3 ">
+    <div class={`fluid-container d-flex align-items-md-center justify-content-center ${styles.container}`}>
+      <div class={`col-md-12 col-lg-3 ${styles.form}`}>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             name ="email"
@@ -59,9 +60,9 @@ render(){
             type="password"
             placeholder="Confirm password"
           />
-          <button type="submit" className="btn btn-block form-btn" > Register </button>
+          <button type="submit" className={`btn btn-block ${styles.btn}`} > Register </button>
           <hr />
-          <Link to="/" className ="btn btn-block form-btn">Login</Link>
+          <Link to="/" className ={`btn btn-block ${styles.btn}`}>Login</Link>
         </form>
       </div>
     </div>
