@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createUser } from '../../actions';
 import * as EmailValidator from 'email-validator';
-import styles from './register.module.css';
+import styles from './login-form.module.css';
 
 class RegisterForm extends Component{
   renderField(field){
@@ -78,10 +78,10 @@ if(!EmailValidator.validate(values.email)){
   errors.email="Email is not valid"
 }
 if(!values.password ||values.password.length<6){
-  errors.password="Password Should be 6 chahracter"
+  errors.password="Password should be 6 characters or more"
 }
 if( values.password_confirm !== values.password){
-  errors.password_confirm="Password doesnot match"
+  errors.password_confirm="Password does not match"
 }
 // // if(!values.password || values.password.length<10){
 // //   errors.password="Password doesnot match"
