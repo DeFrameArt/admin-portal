@@ -5,6 +5,8 @@ Below you will find some information on how to perform common tasks.
 —- create-react-app deframe-admin-portal(name of the folder of project)
 
 
+
+
 Will install below dependencies
 
 ——   npm install --save react-redux
