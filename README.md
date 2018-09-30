@@ -1,8 +1,6 @@
 Below you will find some information on how to perform common tasks.
 // will arrange according to step
 
-
-
 `````` —-   npm install -g create-react-app
 —- create-react-app deframe-admin-portal(name of the folder of project)
 
