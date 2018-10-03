@@ -20,7 +20,7 @@ import AddNewUser from './components/add_newuser';
 import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
 import MuseumFeatureImage from './components/museum_featureImage';
-import SidebarRightPush from './components/dashbord';
+import SidebarRightPush from './components/dashboard/dashboard.js';
 
 
 

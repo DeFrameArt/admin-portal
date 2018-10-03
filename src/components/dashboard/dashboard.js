@@ -1,5 +1,8 @@
 import React,{Component} from 'react';
 
+//import local scoped style
+import styles from './dashboard.module.css';
+
 const NavItem = props => {
   const pageURI = window.location.pathname+window.location.search
   const liClassName = (props.path === pageURI) ? "nav-item active" : "nav-item"
