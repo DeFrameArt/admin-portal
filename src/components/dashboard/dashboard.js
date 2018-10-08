@@ -49,22 +49,9 @@ render(){
 
 export default class Dashboard extends Component {
   render(){
-    const sidebarStyle = {
-      position: 'absolute',
-      width: '230px',
-      height: '100%',
-      background: '#2A3F54',
-      zIndex: 9999,
-      display: 'flex'
-    }
+
     return(
-      <nav className = "navbar navbar-expand-lg navbar-light bg-light" style={sidebarStyle}>
-        <a className = "navbar-brand" href="/">AdminPortal</a>
-        <button className ="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <nav className = "navdrawer navdrawer-permanent-lg">
           <ul className="navbar-nav mr-auto">
             <NavItem path="/" name="category 1"/>
             <NavItem path="/" name="category 2"/>
@@ -85,8 +72,6 @@ export default class Dashboard extends Component {
               {/* link will be to the page where we want the user to navigate */}
             </NavDropdown>
           </ul>
-
-        </div>
       </nav>
     )
   }

@@ -2,6 +2,7 @@ import React from 'react';
 //import global styles
 import 'daemonite-material/css/material.min.css';
 import 'daemonite-material/js/material.min.js';
+import './global.css'
 
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
@@ -11,8 +12,13 @@ import {createStore, applyMiddleware} from 'redux';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers/index';
 import ChangePassword from './components/change-password';
-import LoginForm from './components/login-register-form/login-form.js';
-import RegisterForm from './components/login-register-form/register.js';
+
+
+//commented out line below to test ./components/index.js
+// import SidebarRightPush from './components/dashboard/dashboard.js';
+// import LoginForm from './components/login-register-form/login-form.js';
+// import RegisterForm from './components/login-register-form/register.js';
+
 import AddNewExhibit from './components/add-new-exhibit';
 import AddNewGallery  from './components/add-gallery';
 import ShowGallery from './components/show_gallery';
@@ -20,7 +26,15 @@ import AddNewUser from './components/add_newuser';
 import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
 import MuseumFeatureImage from './components/museum_featureImage';
-import SidebarRightPush from './components/dashboard/dashboard.js';
+
+
+//Import components using single import statement
+//requires an index.js file in compononents folder
+import {
+  LoginForm, 
+  RegisterForm, 
+  Dashboard as SidebarRightPush
+} from './components'
 
 
 
