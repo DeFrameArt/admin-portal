@@ -5,74 +5,41 @@ import styles from './dashboard.module.css';
 
 const NavItem = props => {
   const pageURI = window.location.pathname+window.location.search
-  const liClassName = (props.path === pageURI) ? "nav-item active" : "nav-item"
-  const aClassName = props.disabled ? "nav-link disabled" : "nav-link"
 
-  return(
-    <li className={liClassName}>
-      <a href = {props.path} className={aClassName} >
-        {props.name}
-        {(props.path === pageURI) ? (<span className="sr-only">(current)</span>):''}
-      </a>
-    </li>
+  //code below checks props to determine which class to use and concats it together
+  //requires the space at the end of the string for valid className
+  let aClassName = "nav-item nav-link " + (props.disabled ? "disabled " : "") + ((props.path === pageURI) ? "active " : "") + (props.className ? props.className : "")
+
+  //collapsible conditional determines which a tag to output
+  let returnVal = props.isCollapse? (
+    <a className={aClassName} data-toggle="collapse" href={props.path}>{props.name}</a>
+  ) : (
+    <a href={props.path} className={aClassName}>{props.name}</a>
   )
-}
-class NavDropdown extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-      isToggleOn: false
-    }
-  }
-  showDropdown(e) {
-    e.preventDefault()
-    this.setState(prevState =>({
-      isToggleOn: !prevState.isToggleOn
-    }))
-  }
-render(){
-  const classDropdownMenu = 'dropdown-menu' + (this.state.isToggleOn ? 'show' : '')
-  return(
-    <li className="nav-item dropdown">
-      <a className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false"
-        onClick={(e) => {this.showDropdown(e)}}>
-        {this.props.name}
-      </a>
-      <div className={classDropdownMenu} aria-labelledby="navbarDropdown">
-        {this.props.children}
-      </div>
-    </li>
-  )
-}
+  return returnVal
 }
 
 export default class Dashboard extends Component {
   render(){
 
     return(
-      <nav className = "navdrawer navdrawer-permanent-lg">
-          <ul className="navbar-nav mr-auto">
-            <NavItem path="/" name="category 1"/>
-            <NavItem path="/" name="category 2"/>
-            <NavItem path="/" name="category 3" disabled="true"/>
+      <div aria-hidden="true" className = "navdrawer navdrawer-permanent-lg">
+        <div className="navdrawer-content">
+          <nav className="navdrawer-nav">
+            <NavItem path="#" name="category 1"/>
+            <NavItem path="#" name="category 2" disabled="true"/>
+            <NavItem path="#" name="category 3"/>
             {/* link will be to the page where we want the user to navigate */}
-            <NavDropdown name="Dropdown">
-              <a className="dropdown-item" href="/">Action</a>
-              <a className="dropdown-item" href="/">Another action</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="/">Something else here</a>
-              {/* link will be to the page where we want the user to navigate */}
-            </NavDropdown>
-            <NavDropdown name="Dropdown1">
-              <a className="dropdown-item" href="/">Action</a>
-              <a className="dropdown-item" href="/">Another action</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="/">Something else here</a>
-              {/* link will be to the page where we want the user to navigate */}
-            </NavDropdown>
-          </ul>
-      </nav>
+            
+            <NavItem isCollapse="true" path="#collapse1" name="Collapse 1"/>
+            <div className="collapse" id="collapse1">
+              <NavItem path="#" name="Collapsible 1" className="pl-4 text-black-secondary"/>
+              <NavItem path="#" name="Collapsible 2" className="pl-4 text-black-secondary"/>
+            </div>
+
+          </nav>
+        </div>
+      </div>
     )
   }
 }
