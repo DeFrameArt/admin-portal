@@ -23,8 +23,8 @@ export default class Dashboard extends Component {
   render(){
 
     return(
-      <div aria-hidden="true" className = "navdrawer navdrawer-permanent-lg">
-        <div className="navdrawer-content">
+      <div aria-hidden="true" className = "navdrawer navdrawer-permanent-lg ">
+        <div className="navdrawer-content bg-primary">
           <nav className="navdrawer-nav">
             <NavItem path="#" name="category 1"/>
             <NavItem path="#" name="category 2" disabled="true"/>
@@ -33,8 +33,8 @@ export default class Dashboard extends Component {
             
             <NavItem isCollapse="true" path="#collapse1" name="Collapse 1"/>
             <div className="collapse" id="collapse1">
-              <NavItem path="#" name="Collapsible 1" className="pl-4 text-black-secondary"/>
-              <NavItem path="#" name="Collapsible 2" className="pl-4 text-black-secondary"/>
+              <NavItem path="#" name="Collapsible 1" className="pl-4 text-black-secondary bg-white"/>
+              <NavItem path="#" name="Collapsible 2" className="pl-4 text-black-secondary bg-white"/>
             </div>
 
           </nav>
