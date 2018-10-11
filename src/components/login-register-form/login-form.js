@@ -39,7 +39,7 @@ render(){
   const{ handleSubmit } = this.props
   return(
     <div className={`fluid-container d-flex align-items-md-center justify-content-center ${styles.container}`}>
-      <div className={`${styles.form} col-md-12 col-lg-3`}>
+      <div className={`${styles.form} col-md-12 col-lg-3 bg-primary`}>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             name ="email"

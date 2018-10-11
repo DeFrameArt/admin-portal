@@ -1,0 +1,10 @@
+//overrieds.scss is used to override the default values in the material theme or to add custom values to its built in classes.
+
+//global scss variables should be declared the globals.scss file
+$primary: (
+  color: rgba(208, 66, 122, 1),
+  dark: darken(rgba(208, 66, 122, 1), 20%),
+  light: lighten(rgba(208, 66, 122, 1), 15%)
+);
+
+@import "node_modules/daemonite-material/assets/scss/material";

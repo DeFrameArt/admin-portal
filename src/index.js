@@ -1,8 +1,7 @@
 import React from 'react';
 //import global styles
-import 'daemonite-material/css/material.min.css';
 import 'daemonite-material/js/material.min.js';
-import './global.scss'
+import './default-overrides.scss'
 
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
