@@ -2,7 +2,7 @@ import React from 'react';
 //import global styles
 import 'daemonite-material/css/material.min.css';
 import 'daemonite-material/js/material.min.js';
-import './global.css'
+import './global.scss'
 
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';

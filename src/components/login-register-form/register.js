@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createUser } from '../../actions';
 import * as EmailValidator from 'email-validator';
-import styles from './login-form.module.css';
+
+//import styles from stylesheet
+import styles from './login-form.module.scss';
 
 class RegisterForm extends Component{
   renderField(field){

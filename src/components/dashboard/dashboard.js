@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 //import local scoped style
-import styles from './dashboard.module.css';
+import styles from './dashboard.module.scss';
 
 const NavItem = props => {
   const pageURI = window.location.pathname+window.location.search

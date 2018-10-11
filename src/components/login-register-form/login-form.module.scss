@@ -30,20 +30,20 @@ opacity: 1; /* Firefox */
 
 .btn {
   background-color: rgba(0, 0, 0, 0.15);
-  color:  rgba(255, 255, 255);
+  color:  rgba(255, 255, 255, 1);
 
 }
 
 .btn:focus{
-  color:  rgba(255, 255, 255);
+  color:  rgba(255, 255, 255, 1);
 }
 
 .btn:hover {
   background-color: rgba(0, 0, 0, 0.25);
-  color:  rgba(255, 255, 255);
+  color:  rgba(255, 255, 255, 1);
 }
 
 .btn:active {
   background-color: rgba(0, 0, 0, 0.40);
-  color:  rgba(255, 255, 255);
+  color:  rgba(255, 255, 255, 1);
 }

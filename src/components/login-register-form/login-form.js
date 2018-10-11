@@ -6,7 +6,7 @@ import { loginUser} from '../../actions';
 import {connect} from 'react-redux';
 
 //import stylesheet
-import styles from './login-form.module.css';
+import styles from './login-form.module.scss';
 
 
 class LoginForm extends Component{
