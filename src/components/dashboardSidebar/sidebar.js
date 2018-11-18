@@ -41,7 +41,7 @@ class NavCollapse extends Component {
 }
 
 
-export default class Dashboard extends Component {
+export default class sidebar extends Component {
   render(){
 
     return(

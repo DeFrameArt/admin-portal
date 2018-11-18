@@ -1,23 +1,22 @@
+//import react
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+
 //import global styles
 import 'daemonite-material/js/material.min.js';
 import './default-overrides.scss'
 
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+//import redux
 import promise from 'redux-promise';
 import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers/index';
+
+
+//Component imports
 import ChangePassword from './components/change-password';
-
-
-//commented out line below to test ./components/index.js
-// import SidebarRightPush from './components/dashboard/dashboard.js';
-// import LoginForm from './components/login-register-form/login-form.js';
-// import RegisterForm from './components/login-register-form/register.js';
-
 import AddNewExhibit from './components/add-new-exhibit';
 import AddNewGallery  from './components/add-gallery';
 import ShowGallery from './components/show_gallery';
@@ -26,13 +25,12 @@ import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
 import MuseumFeatureImage from './components/museum_featureImage';
 
-
 //Import components using single import statement
 //requires an index.js file in compononents folder
 import {
   LoginForm, 
   RegisterForm, 
-  Dashboard as SidebarRightPush
+  Sidebar
 } from './components'
 
 
@@ -44,9 +42,10 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
+          <Route path="/" component ={LoginForm} />
           <Route path="/changepassword" component ={ChangePassword} />
           <Route path="/register" component ={RegisterForm} />
-          <Route path="/dashboard" component={SidebarRightPush} />
+          <Route path="/dashboard" component={Sidebar} />
           <Route path="/add-new-exhibit" component={AddNewExhibit} />
           <Route path="/add-gallery" component ={AddNewGallery} />
           <Route path="/show-gallery" component ={ShowGallery}/>
@@ -54,7 +53,6 @@ ReactDOM.render(
           <Route path="/welcome" component={ WelcomeAdmins } />
           <Route path ="/featureimage" component={ MuseumFeatureImage } />
           {/* <Route path="featuretype/:id" component={featuretype} /> */}
-          <Route path="/" component ={LoginForm} />
         </Switch>
       </div>
     </BrowserRouter>
