@@ -42,7 +42,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/" component ={LoginForm} />
+          <Route exact path="/" component ={LoginForm} />
           <Route path="/changepassword" component ={ChangePassword} />
           <Route path="/register" component ={RegisterForm} />
           <Route path="/dashboard" component={Sidebar} />

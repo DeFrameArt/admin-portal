@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 //import local scoped style
-import styles from './dashboard.module.scss';
+import styles from './sidebar.module.scss';
 
 const NavItem = props => {
   const pageURI = window.location.pathname+window.location.search
@@ -41,7 +41,7 @@ class NavCollapse extends Component {
 }
 
 
-export default class sidebar extends Component {
+export default class Sidebar extends Component {
   render(){
 
     return(
