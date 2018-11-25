@@ -51,11 +51,22 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-
           <Route exact path="/login" component ={LoginForm} />
           <Route exact path="/register" component ={RegisterForm} />
 
-          <Route path="/dashboard" children={() => {
+{
+  /* 
+  I'm not sure if tbelow is the best way to handle the routing. I think it's possible to do:
+<Route path="/" component={Sidebar}>
+<Switch>
+  //routes for the different screens here
+</Switch>
+
+
+We will also need to figure out how to redirect on login. there is an example in the react-router docs, but it is a bit vague
+  */
+}
+          <Route path="/dashboard" children={(props) => {
             return (
               <Dashboard>
                 <Switch>
