@@ -34,6 +34,16 @@ import {
 } from './components'
 
 
+//small functional component to render the dashboard. Essentially wraps the sidebar component in a div and puts any children below it.
+//To add/modify/delete links in the sidebar, modify components/dashboardSidebar/sidebar.js
+const Dashboard = (props) => {
+  return (
+    <div>
+      <Sidebar />
+        {props.children}
+    </div>
+  )
+}
 
 // import registerServiceWorker from './registerServiceWorker';
 const createStoreWithMiddleware = applyMiddleware(thunk, promise)(createStore);
@@ -41,19 +51,27 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-        <Switch>
-          <Route exact path="/" component ={LoginForm} />
-          <Route path="/changepassword" component ={ChangePassword} />
-          <Route path="/register" component ={RegisterForm} />
-          <Route path="/dashboard" component={Sidebar} />
-          <Route path="/add-new-exhibit" component={AddNewExhibit} />
-          <Route path="/add-gallery" component ={AddNewGallery} />
-          <Route path="/show-gallery" component ={ShowGallery}/>
-          <Route path="/add-new-user" component={ AddNewUser } />
-          <Route path="/welcome" component={ WelcomeAdmins } />
-          <Route path ="/featureimage" component={ MuseumFeatureImage } />
-          {/* <Route path="featuretype/:id" component={featuretype} /> */}
-        </Switch>
+
+          <Route exact path="/login" component ={LoginForm} />
+          <Route exact path="/register" component ={RegisterForm} />
+
+          <Route path="/dashboard" children={() => {
+            return (
+              <Dashboard>
+                <Switch>
+                  <Route path="/changepassword" component ={ChangePassword} />
+                  <Route path="/add-new-exhibit" component={AddNewExhibit} />
+                  <Route path="/add-gallery" component ={AddNewGallery} />
+                  <Route path="/show-gallery" component ={ShowGallery}/>
+                  <Route path="/add-new-user" component={ AddNewUser } />
+                  <Route path="/welcome" component={ WelcomeAdmins } />
+                  <Route path ="/featureimage" component={ MuseumFeatureImage } />
+                  {/* <Route path="featuretype/:id" component={featuretype} /> */}
+                </Switch>
+              </Dashboard> 
+            )
+          }} />
+        
       </div>
     </BrowserRouter>
   </Provider>, document.getElementById('root'));

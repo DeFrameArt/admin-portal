@@ -48,15 +48,19 @@ export default class Sidebar extends Component {
       <div aria-hidden="true" className = "navdrawer navdrawer-permanent-lg ">
         <div className={`navdrawer-content ${styles.darkBg}`}>
           <nav className="navdrawer-nav ">
-            <NavItem path="/dashboard" name="category 1"/>
-            <NavItem path="#" name="category 2" disabled="true"/>
-            <NavItem path="#" name="category 3"/>
+            <NavItem path="/dashboard" name="Back to dashboard"/>
+            <NavItem path="#" name="disabled example" disabled="true"/>
+            <NavItem path="/add-new-exhibit" name="Add new exhibit"/>
             {/* link will be to the page where we want the user to navigate */}
             
-            <NavCollapse id="collapse1" name="Collapse 1">
-              <NavItem path="/dashboard" name="Collapsible 1" className={`pl-4 ${styles.navCollapseChild}`}/>
-              <NavItem path="#" name="Collapsible 2" className={`pl-4 ${styles.navCollapseChild}`}/>
+            <NavCollapse id="collapse1" name="Collapse Example">
+              <NavItem path="/add-gallery" name="Add Gallery" className={`pl-4 ${styles.navCollapseChild}`}/>
+              <NavItem path="/show-gallery" name="Show Gallery" className={`pl-4 ${styles.navCollapseChild}`}/>
             </NavCollapse>
+
+            <NavItem path="/add-new-user" name="Add new user"/>
+
+            
           </nav>
         </div>
       </div>
