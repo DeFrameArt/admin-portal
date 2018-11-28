@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import { createPainting } from '../actions/index';
 import DropdownList from 'react-widgets/lib/DropdownList'
 import '../index.css';
+import MuseumFeatureImage from './museum_featureImage.js'
 
 
-// instead of color dropdown should be gallery name like american,contemporarry,european
 
 const galleries = [ { gallery: "European", value: 'european' },
   { gallery: 'Contemporary', value: 'contemporary' },
@@ -37,6 +37,7 @@ class AddNewPainting extends Component{
 
     onChange={field.input.onChange}
     placeholder = {field.placeholder}
+
   />
 
 )

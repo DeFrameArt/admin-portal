@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import '../index.css';
 import {fetchGallery} from '../actions/index';
-import MuseumFeatureImage from './museum_featureImage.js'
+
 // import { Link } from 'react-router-dom';
 class ShowGallery extends Component {
 componentDidMount(){
@@ -18,7 +18,7 @@ renderGallery(){
   // then mapping a new array that contains only the featureType value.
 
     const featureType = _.filter(this.props.gallery, (gallery, i, array) => {
-console.log(array)
+
       //the callback predicate in _.filter returns true if the current gallery.featuretype val != the featuretype val in next element. The callback also returns true for the last element.
 
       //index is a string value, to check next value i has to be converted to an int.
@@ -42,11 +42,12 @@ console.log(array)
             {/* featureType:type is used for matching */}
             { _.filter(this.props.gallery, {featuretype: type}).map(e => {
               return (
-               <li key={e.id}>
-                 {e.name}
-               </li>
-             )
-           })}
+
+                <li key={e.id}>
+                  {e.name}
+                </li>
+              )
+            })}
           </ul>
         </li>)
       })
