@@ -3,8 +3,11 @@ import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import { createPainting } from '../actions/index';
 import DropdownList from 'react-widgets/lib/DropdownList'
+<<<<<<< HEAD:src/components/add-new-painting.js
 import '../index.css';
 import MuseumFeatureImage from './museum_featureImage.js'
+=======
+>>>>>>> route-refactor:src/components/add-new-exhibit.js
 
 
 
