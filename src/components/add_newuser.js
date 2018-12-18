@@ -37,7 +37,7 @@ class AddNewUser extends Component{
   render(){
     const{ handleSubmit } = this.props
     return(
-      <div>
+      <div className="container">
         <h6>User Information</h6>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div >
@@ -87,8 +87,17 @@ class AddNewUser extends Component{
               placeholder= "Institution Type"
             />
           </div>
-          <button type ="submit" className = "mt-5 btn btn-block form-btn"> Save </button>
-          <button type="reset" className ="mt-5 btn btn-block form-btn">Cancel</button>
+          <div className="row">
+            <div className="col-6">
+              <button type ="submit" className = "mt-5 btn btn-block form-btn"> Save </button>
+
+            </div>
+            <div className="col-6">
+              <button type="reset" className ="mt-5 btn btn-block form-btn">Cancel</button>
+
+            </div>
+
+          </div>
         </form>
       </div>
         )
