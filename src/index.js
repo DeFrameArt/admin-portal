@@ -39,7 +39,7 @@ import {
 const Dashboard = (props) => {
   return (
     <div>
-      <Sidebar />
+      <Sidebar {...props}/>
         {props.children}
     </div>
   )
@@ -66,15 +66,15 @@ ReactDOM.render(
 We will also need to figure out how to redirect on login. there is an example in the react-router docs, but it is a bit vague
   */
 }
-          <Route path="/dashboard" children={(props) => {
+          <Route path="/dashboard" component={(props) => {
             return (
-              <Dashboard>
+              <Dashboard {...props}>
                 <Switch>
                   <Route path="/changepassword" component ={ChangePassword} />
-                  <Route path="/add-new-exhibit" component={AddNewExhibit} />
-                  <Route path="/add-gallery" component ={AddNewGallery} />
-                  <Route path="/show-gallery" component ={ShowGallery}/>
-                  <Route path="/add-new-user" component={ AddNewUser } />
+                  <Route path={`${props.match.path}/add-new-exhibit`} component={AddNewExhibit} />
+                  <Route path={`${props.match.path}/add-gallery`} component ={AddNewGallery} />
+                  <Route path={`${props.match.path}/show-gallery`} component ={ShowGallery}/>
+                  <Route path={`${props.match.path}/add-new-user`}  component={ AddNewUser } />
                   <Route path="/welcome" component={ WelcomeAdmins } />
                   <Route path ="/featureimage" component={ MuseumFeatureImage } />
                   {/* <Route path="featuretype/:id" component={featuretype} /> */}
