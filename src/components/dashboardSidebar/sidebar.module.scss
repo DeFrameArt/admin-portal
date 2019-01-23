@@ -4,13 +4,3 @@
   background-color: $dark-bg-color;
 }
 
-.navCollapseChild{
-  background-color: #bebebe !important;
-
-  &:hover{
-    background-color: #f5f5f5 !important;
-  }
-  &:active.active{
-    background-color: #fafafa !important;
-  }
-}
