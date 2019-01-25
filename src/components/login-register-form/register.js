@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createUser } from '../../actions';
+import { createUser } from '../../actions/index.js';
 import * as EmailValidator from 'email-validator';
 
 //import styles from stylesheet
