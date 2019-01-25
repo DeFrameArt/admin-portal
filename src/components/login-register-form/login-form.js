@@ -2,7 +2,7 @@
 import {Field, reduxForm} from 'redux-form';
 import { Link } from 'react-router-dom';
 import * as EmailValidator from 'email-validator';
-import { loginUser} from '../../actions';
+import { loginUser } from '../../actions/index.js';
 import {connect} from 'react-redux';
 
 //import stylesheet
@@ -33,7 +33,6 @@ class LoginForm extends Component{
   }
   onSubmit(values){
     this.props.loginUser(values)
-
   }
 render(){
   const{ handleSubmit } = this.props

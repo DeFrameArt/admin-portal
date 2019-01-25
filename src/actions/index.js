@@ -1,5 +1,8 @@
 import axios from 'axios';
 import {API_CALL} from '../utils/project_consts';
+import  Sidebar from '../components/dashboardSidebar/sidebar.js';
+import { Redirect } from 'react-router';
+
 
 export const  CREATE_USER ='CREATE_USER';
 export const LOGIN_USER ='LOGIN_USER';
@@ -10,11 +13,14 @@ export const FETCH_GALLERY= 'FETCH_GALLERY';
 export const ADD_USER ='ADD_USER';
 export const FETCH_ADMINS = 'FETCH_ADMINS'
 export const FEATURE_IMAGES ='FEATURE_IMAGES';
+export const MUSEUM_BY_CITY='MUSEUM_BY_CITY'
+export const GET_ERRORS= 'GET_ERRORS';
+
 export function createUser(values){
   return(dispatch, getState) =>{
     debugger
   const request = axios.post(API_CALL+'/accounts/register',values)
-.then((response) => {
+  request.then((response) => {
        dispatch({
          type: CREATE_USER,
          payload:values
@@ -23,18 +29,28 @@ export function createUser(values){
 }
 }
 export function loginUser(values){
-  return(dispatch,getState) =>{
-  const request = axios.post(API_CALL+'/accounts/login', values)
-  return(dispatch) =>{
-    request.then(()=>{
-      dispatch({
-       type: LOGIN_USER,
-       payload:values
-      })
-    })
+const request = axios.post(API_CALL+'/accounts/login', values)
+debugger;
+// console.log('debugger start1');
+return(dispatch) =>{
+  request.then((values)=>{
+    dispatch({
+     type: LOGIN_USER,
+     payload:values,
+  })
+    if(values.statusText=== "OK"){
+console.log(values)
+window.location.href =`/dashboard`;
+console.log("values"+values)
+    
   }
+
+  })
+   }
   }
-}
+
+  
+
 
 export function galleryFeatureImages(){
   const request = axios.get(API_CALL+'/museums/1/featuredimages')
@@ -108,4 +124,16 @@ export function fetchAdmins(){
       })
     })
   }
+}
+//get museum by city
+export function getMuseumByCity(city){
+  const request = axios.get('http://deframe-prod-api.us-east-1.elasticbeanstalk.com/museums/museumsbycity',city)
+return(dispatch)=>{
+  request.then(({data})=>{
+    dispatch({
+type: MUSEUM_BY_CITY,
+payload:data
+})
+})
+}
 }

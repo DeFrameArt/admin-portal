@@ -24,6 +24,7 @@ import AddNewUser from './components/add_newuser';
 import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
 import MuseumFeatureImage from './components/museum_featureImage';
+import MuseumByCity from './components/museum-by-city';
 
 //Import components using single import statement
 //requires an index.js file in compononents folder
@@ -82,6 +83,7 @@ We will also need to figure out how to redirect on login. there is an example in
               </Dashboard> 
             )
           }} />
+          <Route path ="/museumbycity" component = {MuseumByCity}/>
         
       </div>
     </BrowserRouter>
