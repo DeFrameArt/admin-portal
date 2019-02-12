@@ -28,7 +28,7 @@ console.log(gall.featuretype)
 
     return(
       <div className="container">
-        <h3>Gallery</h3>
+        <h2>Gallery</h2>
         <ul className="list-group">
           {this.renderGallery()}
           {console.log(this.renderGallery())}

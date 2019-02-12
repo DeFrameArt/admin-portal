@@ -37,7 +37,7 @@ class NavCollapse extends Component {
 
   render(){
     const { id, displaytext, children, disabled, className } = this.props
-    let concatClassName =  "nav-item nav-link text-white " + (this.state.active? "bg-primary-light " : "") + (disabled ? "disabled " : "") + (className? className : "")
+    let concatClassName =  `nav-item nav-link text-white ` + (this.state.active? "bg-primary-light " : "") + (disabled ? "disabled " : "") + (className? className : "")
     return(
       <div>
         <a data-toggle="collapse" className={concatClassName} href={`#${id}`} displaytext={displaytext} onClick={this.onClick}>{displaytext}</a>

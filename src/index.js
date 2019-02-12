@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //import global styles
 import 'daemonite-material/js/material.min.js';
-import './default-overrides.scss'
+import './global-styles.scss';
 
 //import redux
 import promise from 'redux-promise';
@@ -44,22 +44,23 @@ ReactDOM.render(
           <Route exact path="/register" component ={RegisterForm} />
           
           <Route path="/dashboard" component={props => {
-            console.log(props.match)
             return (
-              <div>
+              <>
                 <Sidebar {...props}/>
-                <Switch>
-                  <Route path="/changepassword" component ={ChangePassword} />
-                  <Route path={`${props.match.path}/home`} />
-                  <Route path={`${props.match.path}/add-new-exhibit`} component={AddNewExhibit} />
-                  <Route path={`${props.match.path}/add-gallery`} component ={AddNewGallery} />
-                  <Route path={`${props.match.path}/show-gallery`} component ={ShowGallery}/>
-                  <Route path={`${props.match.path}/add-new-user`}  component={ AddNewUser } />
-                  <Route path={`${props.match.path}/admins`} component={ WelcomeAdmins } />
-                  <Route path ="/featureimage" component={ MuseumFeatureImage } />
-                  {/* <Route path="featuretype/:id" component={featuretype} /> */}
-                </Switch>   
-              </div>
+                <div className='content-wrapper '>
+                  <Switch>
+                    {/* <Route path="/changepassword" component ={ChangePassword} /> */}
+                    <Route path={`${props.match.path}/home`} />
+                    <Route path={`${props.match.path}/add-new-exhibit`} component={AddNewExhibit} />
+                    <Route path={`${props.match.path}/add-gallery`} component ={AddNewGallery} />
+                    <Route path={`${props.match.path}/show-gallery`} component ={ShowGallery}/>
+                    <Route path={`${props.match.path}/add-new-user`}  component={ AddNewUser } />
+                    <Route path={`${props.match.path}/admins`} component={ WelcomeAdmins } />
+                    <Route path ="/featureimage" component={ MuseumFeatureImage } />
+                    {/* <Route path="featuretype/:id" component={featuretype} /> */}
+                  </Switch>   
+                </div>
+              </>
       
             )
           }} />

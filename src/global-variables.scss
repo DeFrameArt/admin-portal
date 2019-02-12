@@ -4,6 +4,10 @@
 
 $dark-bg-color:rgba(82, 70, 83, 1);
 
+$main: #d0427a;
+$main-dark: darken($main, 10%);
+$main-light: lighten($main, 10%);
+
 //then refer to it using $dark-bg-color in the stylesheet
 //remember to import this stylesheet at the top using @import
 
