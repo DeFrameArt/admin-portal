@@ -18,6 +18,8 @@ const NavItem = props => {
   return <NavLink to={`${props.path}`} activeClassName="bg-primary" className={concatClassName}>{props.displaytext}</NavLink>
 }
 
+
+
 //NavCollapse looks similar to NavItem in that its anchor tag is nearly identical. 
 //However, the active className is determined in state, and it also renders a collapsible div right below it. Any component children are rendered in the collapsible div.
 // TODO convert to react-router NavLinks if possible. Look up how to do collapsibles using react-router
@@ -48,6 +50,7 @@ class NavCollapse extends Component {
     )
   }
 }
+
 
 
 //completed sidebar component uses components described above to draw the navigation links

@@ -1,6 +1,8 @@
 //import react
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+//import react-router
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //import global styles
