@@ -1,0 +1,7 @@
+@import './default-overrides.scss';
+
+@include media-breakpoint-up(lg) {
+  .content-wrapper {
+    margin-left: $navdrawer-width;
+  }
+}

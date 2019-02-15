@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //import global styles
 import 'daemonite-material/js/material.min.js';
-import './default-overrides.scss'
+import './global-styles.scss';
 
 //import redux
 import promise from 'redux-promise';
@@ -35,17 +35,6 @@ import {
 } from './components'
 
 
-//small functional component to render the dashboard. Essentially wraps the sidebar component in a div and puts any children below it.
-//To add/modify/delete links in the sidebar, modify components/dashboardSidebar/sidebar.js
-const Dashboard = (props) => {
-  return (
-    <div>
-      <Sidebar />
-        {props.children}
-    </div>
-  )
-}
-
 // import registerServiceWorker from './registerServiceWorker';
 const createStoreWithMiddleware = applyMiddleware(thunk, promise)(createStore);
 ReactDOM.render(
@@ -54,33 +43,26 @@ ReactDOM.render(
       <div>
           <Route exact path="/login" component ={LoginForm} />
           <Route exact path="/register" component ={RegisterForm} />
-
-{
-  /* 
-  I'm not sure if tbelow is the best way to handle the routing. I think it's possible to do:
-<Route path="/" component={Sidebar}>
-<Switch>
-  //routes for the different screens here
-</Switch>
-
-
-We will also need to figure out how to redirect on login. there is an example in the react-router docs, but it is a bit vague
-  */
-}
-          <Route path="/dashboard" children={(props) => {
+          
+          <Route path="/dashboard" component={props => {
             return (
-              <Dashboard>
-                <Switch>
-                  <Route path="/changepassword" component ={ChangePassword} />
-                  <Route path="/add-new-exhibit" component={AddNewExhibit} />
-                  <Route path="/add-gallery" component ={AddNewGallery} />
-                  <Route path="/show-gallery" component ={ShowGallery}/>
-                  <Route path="/add-new-user" component={ AddNewUser } />
-                  <Route path="/welcome" component={ WelcomeAdmins } />
-                  <Route path ="/featureimage" component={ MuseumFeatureImage } />
-                  {/* <Route path="featuretype/:id" component={featuretype} /> */}
-                </Switch>
-              </Dashboard> 
+              <>
+                <Sidebar {...props}/>
+                <div className='content-wrapper '>
+                  <Switch>
+                    {/* <Route path="/changepassword" component ={ChangePassword} /> */}
+                    <Route path={`${props.match.path}/home`} />
+                    <Route path={`${props.match.path}/add-new-exhibit`} component={AddNewExhibit} />
+                    <Route path={`${props.match.path}/add-gallery`} component ={AddNewGallery} />
+                    <Route path={`${props.match.path}/show-gallery`} component ={ShowGallery}/>
+                    <Route path={`${props.match.path}/add-new-user`}  component={ AddNewUser } />
+                    <Route path={`${props.match.path}/admins`} component={ WelcomeAdmins } />
+                    <Route path ="/featureimage" component={ MuseumFeatureImage } />
+                    {/* <Route path="featuretype/:id" component={featuretype} /> */}
+                  </Switch>   
+                </div>
+              </>
+      
             )
           }} />
           <Route path ="/museumbycity" component = {MuseumByCity}/>

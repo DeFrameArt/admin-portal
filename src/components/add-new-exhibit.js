@@ -45,9 +45,12 @@ class AddNewExhibit extends Component{
   render(){
     const {handleSubmit} = this.props
     return(
-      <div className="container d-flex align-items-md-center justify-content-center">
-        {/* // <h2>Exhibit information</h2> */}
-        <form onSubmit = {handleSubmit(this.onSubmit.bind(this))}>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+          
+            <h2>Exhibit information</h2>
+            <form onSubmit = {handleSubmit(this.onSubmit.bind(this))}>
           <Field
             label = "Exhibit Name"
             name="exhibit_name"
@@ -76,9 +79,13 @@ class AddNewExhibit extends Component{
             type="file"
             placeholder="Uplaod file"
           />
-          <button type="submit" className ="mt-5 btn btn-block form-btn">Save</button>
-          <button type="reset" className ="mt-5 btn btn-block form-btn">Cancel</button>
+          <button type="submit" className ="mt-5 btn form-btn">Save</button>
+          <button type="reset" className ="mt-5 ml-2 btn form-btn">Cancel</button>
         </form>
+      
+          </div>
+        </div>
+        
       </div>
 
     )

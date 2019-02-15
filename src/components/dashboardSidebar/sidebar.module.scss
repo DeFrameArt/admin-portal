@@ -4,13 +4,23 @@
   background-color: $dark-bg-color;
 }
 
-.navCollapseChild{
-  background-color: #bebebe !important;
 
-  &:hover{
-    background-color: #f5f5f5 !important;
-  }
-  &:active.active{
-    background-color: #fafafa !important;
+:global {
+    .navdrawer {
+      a {
+        &:hover{
+          background-color: #833756 !important;
+        }
+      }
+      .disabled {
+        background-color: desaturate(darken($main-dark, 20%), 40%) !important;
+        color: darkgrey !important;
+        &:hover{
+          background-color: desaturate(darken($main-dark, 20%), 40%) !important;
+        }
+      }
+      .collapse {
+        background-color: desaturate($main-light,20%) !important;
+      }
   }
 }

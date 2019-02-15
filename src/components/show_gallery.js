@@ -27,9 +27,9 @@ console.log(gall.featuretype)
   render(){
 
     return(
-      <div>
-        <h3>Gallery</h3>
-        <ul>
+      <div className="container">
+        <h2>Gallery</h2>
+        <ul className="list-group">
           {this.renderGallery()}
           {console.log(this.renderGallery())}
         </ul>
