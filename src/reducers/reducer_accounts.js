@@ -4,7 +4,6 @@ import _ from 'lodash';
 export default function (state={}, action){
     switch(action.type) {
       case FETCH_GALLERY:
-    
       return _.mapKeys(action.payload, "id")
       case FEATURE_IMAGES:
       return _.mapKeys(action.payload, "id")
@@ -16,9 +15,3 @@ return _.mapKeys(action.payload, "city")
         return state;
     }
 }
-
-// function showFeatureImage(){
-//
-//   return( s => ...state,
-//   gallery.featuretype = 'American')
-// }
