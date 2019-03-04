@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class WelcomeAdmins extends Component {
   componentDidMount(){
     this.props.fetchAdmins()
-    console.log('i m here' + "  " + this.props.fetchAdmins())
+    console.log('i m here', "  " , this.props.fetchAdmins())
   }
   renderAdmins(){
     return _.map(this.props.admins, admin =>{
