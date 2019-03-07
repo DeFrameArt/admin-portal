@@ -1,0 +1,16 @@
+//overrides.scss is used to override the default values in the material theme or to add custom values to its built in classes.
+//This file is then imported in global styles, which is then imported into index.js
+
+//This file is not for declaring variables that can be reused. Those go in global-variables.scss
+
+//DO NOT IMPORT THIS STYLESHEET IN A COMPONENT MODULE.SCSS IT WILL MESS UP THE POSITIONING DUE TO THE @import STATEMENT AT THE END OF THIS FILE
+@import "./global-variables.scss";
+
+$primary: (
+  color: $main,
+  dark: $main-dark,
+  light: $main-light
+);
+
+@import "node_modules/daemonite-material/assets/scss/material";
+

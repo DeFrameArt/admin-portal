@@ -1,18 +1,24 @@
+//import react
 import React from 'react';
-//import global styles
-import 'daemonite-material/css/material.min.css';
-import 'daemonite-material/js/material.min.js';
-
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+
+//import react-router
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+
+//import global styles
+import 'daemonite-material/js/material.min.js';
+import './global-styles.scss';
+
+//import redux
 import promise from 'redux-promise';
 import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers/index';
+
+
+//Component imports
 import ChangePassword from './components/change-password';
-import LoginForm from './components/login-form';
-import RegisterForm from './components/register';
 import AddNewExhibit from './components/add-new-exhibit';
 import AddNewGallery  from './components/add-gallery';
 import ShowGallery from './components/show_gallery';
@@ -20,8 +26,15 @@ import AddNewUser from './components/add_newuser';
 import WelcomeAdmins from './components/welcome_admins';
 // import featuretype from './components/feature_type.js'
 import MuseumFeatureImage from './components/museum_featureImage';
-import SidebarRightPush from './components/dashbord';
+import MuseumByCity from './components/museum-by-city';
 
+//Import components using single import statement
+//requires an index.js file in compononents folder
+import {
+  LoginForm, 
+  RegisterForm, 
+  Sidebar
+} from './components'
 
 
 // import registerServiceWorker from './registerServiceWorker';
@@ -30,19 +43,32 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-        <Switch>
-          <Route path="/changepassword" component ={ChangePassword} />
-          <Route path="/register" component ={RegisterForm} />
-          <Route path="/dashboard" component={SidebarRightPush} />
-          <Route path="/add-new-exhibit" component={AddNewExhibit} />
-          <Route path="/add-gallery" component ={AddNewGallery} />
-          <Route path="/show-gallery" component ={ShowGallery}/>
-          <Route path="/add-new-user" component={ AddNewUser } />
-          <Route path="/welcome" component={ WelcomeAdmins } />
-          <Route path ="/featureimage" component={ MuseumFeatureImage } />
-          {/* <Route path="featuretype/:id" component={featuretype} /> */}
-          <Route path="/" component ={LoginForm} />
-        </Switch>
+          <Route exact path="/login" component ={LoginForm} />
+          <Route exact path="/register" component ={RegisterForm} />
+          
+          <Route path="/dashboard" component={props => {
+            return (
+              <>
+                <Sidebar {...props}/>
+                <div className='content-wrapper '>
+                  <Switch>
+                    {/* <Route path="/changepassword" component ={ChangePassword} /> */}
+                    <Route path={`${props.match.path}/home`} />
+                    <Route path={`${props.match.path}/add-new-exhibit`} component={AddNewExhibit} />
+                    <Route path={`${props.match.path}/add-gallery`} component ={AddNewGallery} />
+                    <Route path={`${props.match.path}/show-gallery`} component ={ShowGallery}/>
+                    <Route path={`${props.match.path}/add-new-user`}  component={ AddNewUser } />
+                    <Route path={`${props.match.path}/admins`} component={ WelcomeAdmins } />
+                    <Route path ="/featureimage" component={ MuseumFeatureImage } />
+                    {/* <Route path="featuretype/:id" component={featuretype} /> */}
+                  </Switch>   
+                </div>
+              </>
+      
+            )
+          }} />
+          <Route path ="/museumbycity" component = {MuseumByCity}/>
+        
       </div>
     </BrowserRouter>
   </Provider>, document.getElementById('root'));

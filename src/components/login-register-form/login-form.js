@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+   import React, { Component } from 'react';
 import {Field, reduxForm} from 'redux-form';
 import { Link } from 'react-router-dom';
 import * as EmailValidator from 'email-validator';
-import { loginUser} from '../actions/index';
+import { loginUser } from '../../actions/index.js';
 import {connect} from 'react-redux';
 
 //import stylesheet
-import '../styles/login-form.css';
+import styles from './login-form.module.scss';
 
 
 class LoginForm extends Component{
@@ -19,7 +19,7 @@ class LoginForm extends Component{
       <div className= {className}>
 
         <input
-          className="form-control form-input"
+          className={`form-control ${styles.input}`}
           {...field.input}
           type={ field.type }
           placeholder={field.placeholder}
@@ -33,13 +33,12 @@ class LoginForm extends Component{
   }
   onSubmit(values){
     this.props.loginUser(values)
-
   }
 render(){
   const{ handleSubmit } = this.props
   return(
-    <div className="fluid-container d-flex align-items-md-center justify-content-center login-container">
-      <div className="login-form col-md-12 col-lg-3 ">
+    <div className={`fluid-container d-flex align-items-md-center justify-content-center ${styles.container}`}>
+      <div className={`${styles.form} col-md-12 col-lg-3 bg-primary`}>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             name ="email"
@@ -53,8 +52,8 @@ render(){
             type="password"
             placeholder="Password"
           />
-          <button type="submit" className = "btn btn-block form-btn"> Submit </button><hr />
-          <Link to="/register" className ="btn btn-block form-btn">Register</Link>
+          <button type="submit" className = {`btn btn-block ${styles.btn}`}> Submit </button><hr />
+          <Link to="/register" className = {`btn btn-block ${styles.btn}`}>Register</Link>
         </form>
       </div>
     </div>

@@ -7,7 +7,7 @@ import _ from 'lodash';
 class MuseumFeatureImage extends Component{
 componentDidMount(){
   this.props.galleryFeatureImages()
-  console.log( 'this is featuredimages' + "  " +galleryFeatureImages() )
+  console.log( 'this is featuredimages', "  " +galleryFeatureImages() )
 }
 
 renderfeatureImages(){

@@ -1,0 +1,13 @@
+//global-variables.scss is for important styling variables not defined in default-overrides.scss. Whereas default-overrides is to inject custom values into the installed material design theme, global-variables is used to store styling values that repeat accross multiple stylesheets.
+
+//e.g if you have a custom colour value that is required in different stylesheets, put it here under a variable name like the one below.
+
+$dark-bg-color:rgba(82, 70, 83, 1);
+
+$main: #d0427a;
+$main-dark: darken($main, 10%);
+$main-light: lighten($main, 10%);
+
+//then refer to it using $dark-bg-color in the stylesheet
+//remember to import this stylesheet at the top using @import
+

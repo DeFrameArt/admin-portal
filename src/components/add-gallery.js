@@ -26,34 +26,38 @@ class AddNewGallery extends Component{
     render(){
       const {handleSubmit} = this.props
       return(
-        <div className="container d-flex align-items-md-center justify-content-center">
-
-          {/* <h3> Galllery Information </h3> */}
-          <form onSubmit ={ handleSubmit(this.onSubmit.bind(this))}>
-            <Field
-              name = "gallery_name"
-              component= {this.renderField}
-              type="text"
-              placeholder = "Gallery name"
-            />
-            <Field
-              name="gallery_description"
-              component={this.renderField}
-              type="text"
-              placeholder="Gallery Description"
-            />
-            <Field
-              label = "Main Image"
-              name="main_image"
-              component={this.renderField}
-              type="file"
-            placeholder="upload file" />
-            <button type="submit" className ="mt-5 btn btn-block form-btn">Save</button>
-            <button type="reset" className ="mt-5 btn btn-block form-btn">Cancel</button>
-              </form>
-
+        <div className="container">
+          <div className="row">
+            <div className="col">
+                <h2> Gallery Information </h2>
+                <form onSubmit ={ handleSubmit(this.onSubmit.bind(this))}>
+                  <Field
+                    name = "gallery_name"
+                    component= {this.renderField}
+                    type="text"
+                    placeholder = "Gallery name"
+                  />
+                  <Field
+                    name="gallery_description"
+                    component={this.renderField}
+                    type="text"
+                    placeholder="Gallery Description"
+                  />
+                  <Field
+                    label = "Main Image"
+                    name="main_image"
+                    component={this.renderField}
+                    type="file"
+                  placeholder="upload file" />
+                  <button type="submit" className ="mt-5 btn form-btn">Save</button>
+                  <button type="reset" className ="mt-5 btn form-btn">Cancel</button>
+                    </form>
+            
             </div>
-            )}}
-            export default reduxForm({
-              form:'NewGallery',
-         })(connect (null,{createGallery})(AddNewGallery))
+          </div>
+
+      </div>
+      )}}
+      export default reduxForm({
+        form:'NewGallery',
+    })(connect (null,{createGallery})(AddNewGallery))
