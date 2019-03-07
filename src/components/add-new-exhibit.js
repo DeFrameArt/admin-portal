@@ -30,7 +30,7 @@ class AddNewExhibit extends Component{
     return(
   <DropdownList {...field.input}
     data={field.data}
-    // valueField={valueField}
+    textField='color'
     type={field.type}
     onChange={field.input.onChange}
     placeholder = {field.placeholder}

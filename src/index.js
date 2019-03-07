@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 //import global styles
 import 'daemonite-material/js/material.min.js';
 import './global-styles.scss';
-
+import 'react-widgets/dist/css/react-widgets.css';
 //import redux
 import promise from 'redux-promise';
 import thunk from 'redux-thunk';
