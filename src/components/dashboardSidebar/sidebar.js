@@ -15,7 +15,7 @@ const NavItem = props => {
   //requires the space at the end of the string for valid className
   let concatClassName = "nav-link text-white " + (props.disabled ? "disabled " : "") + (props.className ? props.className : "")
 
-  return <NavLink to={`${props.path}`} activeClassName="bg-primary" className={concatClassName}>{props.displaytext}</NavLink>
+  return <NavLink {...props} to={`${props.path}`} activeClassName="bg-primary" className={concatClassName}>{props.displaytext}</NavLink>
 }
 
 
@@ -63,7 +63,7 @@ export default class Sidebar extends Component {
       <div aria-hidden="true" className = "navdrawer navdrawer-permanent-lg ">
         <div className={`navdrawer-content ${styles.darkBg}`}>
           <nav className="navdrawer-nav ">
-            <NavItem path={`${match.path}/Home`} displaytext="Home"/>
+            <NavItem exact path={`${match.path}`} displaytext="Home"/>
             <NavItem path="#" displaytext="disabled example" disabled="true"/>
             <NavItem path={`${match.path}/add-new-exhibit`} displaytext="Add new exhibit"/>           
             <NavCollapse id="collapse1" displaytext="Collapse Example">
