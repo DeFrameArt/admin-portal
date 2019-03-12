@@ -9,12 +9,14 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import 'daemonite-material/js/material.min.js';
 import './global-styles.scss';
 import 'react-widgets/dist/css/react-widgets.css';
+
 //import redux
 import promise from 'redux-promise';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import reducers from './reducers/index';
+import { devToolsEnhancer, composeWithDevTools } from 'redux-devtools-extension';
 
 
 //Component imports
@@ -38,9 +40,9 @@ import {
 
 
 // import registerServiceWorker from './registerServiceWorker';
-const createStoreWithMiddleware = applyMiddleware(thunk, promise)(createStore);
+const storeWithMiddleware = createStore(reducers, composeWithDevTools(applyMiddleware(thunk, promise)));
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={storeWithMiddleware}>
     <BrowserRouter>
       <div>
           <Route exact path="/login" component ={LoginForm} />
