@@ -4,16 +4,17 @@ import  Sidebar from '../components/dashboardSidebar/sidebar.js';
 import { Redirect } from 'react-router';
 
 
-export const  CREATE_USER ='CREATE_USER';
+export const CREATE_USER ='CREATE_USER';
 export const LOGIN_USER ='LOGIN_USER';
-export const FETCH_POST ='FETCH_POST';
+export const ADD_USER ='ADD_USER';
 export const CREATE_EXHIBIT='CREATE_EXHIBIT';
 export const CREATE_GALLERY ='CREATE_GALLERY';
 export const FETCH_GALLERY= 'FETCH_GALLERY';
-export const ADD_USER ='ADD_USER';
-export const FETCH_ADMINS = 'FETCH_ADMINS'
+export const FETCH_MUSEUMS= 'FETCH_MUSEUMS';
+export const FETCH_ADMINS = 'FETCH_ADMINS';
 export const FEATURE_IMAGES ='FEATURE_IMAGES';
 export const MUSEUM_BY_CITY='MUSEUM_BY_CITY'
+export const FETCH_POST ='FETCH_POST';
 export const GET_ERRORS= 'GET_ERRORS';
 
 export function createUser(values){
@@ -48,14 +49,6 @@ console.log("values"+values)
   })
    }
   }
-
-  
-
-
-  
-
-
-
 
 
 export function galleryFeatureImages() {
@@ -122,6 +115,32 @@ export function fetchGallery() {
     })
   }
 }
+
+export function fetchMuseums() {
+  
+  // const request = axios.get(API_CALL + '/museums')
+  // http://deframe-test-api.us-east-1.elasticbeanstalk.com:80/museums
+  
+  // backend is down as of writing. below is for testing. Uncomment above to use actual API call
+
+  //test data passed mimics axios call
+  const request = Promise.resolve({
+    data: [{id:1, name: 'MFA'},{id:2, name: 'MFA'},{id:3, name: 'MFA'}]
+  })
+
+  return (dispatch) => {
+    request.then(({
+      data
+    }) => {
+      console.log(data)
+      dispatch({
+        type: FETCH_MUSEUMS,
+        payload: data
+      })
+    })
+  }
+}
+
 export function fetchAdmins() {
   const request = axios.get(API_CALL + '/users')
   // have to change url for admin.

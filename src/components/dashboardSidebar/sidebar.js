@@ -64,11 +64,11 @@ export default class Sidebar extends Component {
         <div className={`navdrawer-content ${styles.darkBg}`}>
           <nav className="navdrawer-nav ">
             <NavItem exact path={`${match.path}`} displaytext="Home"/>
-            <NavItem path="#" displaytext="disabled example" disabled="true"/>
-            <NavItem path={`${match.path}/add-new-exhibit`} displaytext="Add new exhibit"/>           
-            <NavCollapse id="collapse1" displaytext="Collapse Example">
+            <NavItem path={`${match.path}/add-new-exhibit`} displaytext="Add Exhibit"/>     
+            <NavItem path={`${match.path}/museums`} displaytext="All Museums"/>      
+            <NavCollapse id="collapse1" displaytext="Galleries">
+              <NavItem path={`${match.path}/show-gallery`} displaytext="All Galleries" className={`pl-4 `}/>
               <NavItem path={`${match.path}/add-gallery`} displaytext="Add Gallery" className={`pl-4 `}/>
-              <NavItem path={`${match.path}/show-gallery`} displaytext="Show Gallery" className={`pl-4 `}/>
             </NavCollapse>
             <NavItem path={`${match.path}/add-new-user`} displaytext="Add new user"/>
           </nav>

@@ -35,7 +35,8 @@ import MuseumByCity from './components/museum-by-city';
 import {
   LoginForm, 
   RegisterForm, 
-  Sidebar
+  Sidebar,
+  ShowMuseums
 } from './components'
 
 
@@ -59,6 +60,7 @@ ReactDOM.render(
                     <Route path={`${props.match.path}/add-new-exhibit`} component={AddNewExhibit} />
                     <Route path={`${props.match.path}/add-gallery`} component ={AddNewGallery} />
                     <Route path={`${props.match.path}/show-gallery`} component ={ShowGallery}/>
+                    <Route path={`${props.match.path}/museums`} component ={ShowMuseums}/>
                     <Route path={`${props.match.path}/add-new-user`}  component={ AddNewUser } />
                     <Route path={`${props.match.path}/admins`} component={ WelcomeAdmins } />
                     <Route path ="/featureimage" component={ MuseumFeatureImage } />
