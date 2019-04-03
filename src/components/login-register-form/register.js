@@ -42,7 +42,7 @@ render(){
   const{ handleSubmit } = this.props
   return(
     <div class={`fluid-container d-flex align-items-md-center justify-content-center ${styles.container}`}>
-      <div class={`col-md-12 col-lg-3 ${styles.form}`}>
+      <div class={`col-md-12 col-lg-3 ${styles.form} bg-primary`}>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             name ="email"
@@ -64,7 +64,7 @@ render(){
           />
           <button type="submit" className={`btn btn-block ${styles.btn}`} > Register </button>
           <hr />
-          <Link to="/" className ={`btn btn-block ${styles.btn}`}>Login</Link>
+          <Link to="/login" className ={`btn btn-block ${styles.btn}`}>Login</Link>
         </form>
       </div>
     </div>

@@ -27,7 +27,7 @@ class NavCollapse extends Component {
   constructor(props){
     super(props)
     this.state = {
-      active: false
+      active: true
     }
   }
   onClick = (e) => {
@@ -43,7 +43,7 @@ class NavCollapse extends Component {
     return(
       <div>
         <a data-toggle="collapse" className={concatClassName} href={`#${id}`} displaytext={displaytext} onClick={this.onClick}>{displaytext}</a>
-        <div className="collapse" id={id}>
+        <div className="collapse show" id={id}>
           {children}
         </div>  
       </div>
@@ -65,11 +65,12 @@ export default class Sidebar extends Component {
           <nav className="navdrawer-nav ">
             <NavItem exact path={`${match.path}`} displaytext="Home"/>
             <NavItem path={`${match.path}/add-new-exhibit`} displaytext="Add Exhibit"/>     
-            <NavItem path={`${match.path}/museums`} displaytext="All Museums"/>      
-            <NavCollapse id="collapse1" displaytext="Galleries">
-              <NavItem path={`${match.path}/show-gallery`} displaytext="All Galleries" className={`pl-4 `}/>
-              <NavItem path={`${match.path}/add-gallery`} displaytext="Add Gallery" className={`pl-4 `}/>
-            </NavCollapse>
+            <NavItem path={`${match.path}/museums`} displaytext="All Museums"/> 
+            <NavItem path={`${match.path}/new-museum`} displaytext="Add Museum"/>      
+            <NavItem path={`${match.path}/galleries`} displaytext="All Galleries" className={`pl-4 `}/>
+            <NavItem path={`${match.path}/add-gallery`} displaytext="Add Gallery" className={`pl-4 `}/>
+            {/* <NavCollapse id="collapse1" displaytext="Galleries">
+            </NavCollapse> */}
             <NavItem path={`${match.path}/add-new-user`} displaytext="Add new user"/>
           </nav>
         </div>
